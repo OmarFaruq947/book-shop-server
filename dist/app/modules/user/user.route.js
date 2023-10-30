@@ -1,0 +1,27 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.userRoutes = void 0;
+const express_1 = __importDefault(require("express"));
+const validateRequest_1 = __importDefault(require("../../middlewares/validateRequest"));
+const user_validations_1 = require("./user.validations");
+const user_controller_1 = require("./user.controller");
+const auth_1 = __importDefault(require("../../middlewares/auth"));
+const router = express_1.default.Router();
+router.get("/my-profile", (0, auth_1.default)(), user_controller_1.UserController.getMyProfile);
+router.patch("/:id", (0, auth_1.default)(), (0, validateRequest_1.default)(user_validations_1.UserValidaion.updateUserZodSchema), user_controller_1.UserController.updateUser);
+router.post("/addToWishlist/:id", (0, auth_1.default)(), user_controller_1.UserController.addToWishlist);
+router.post("/addToReadingList/:id", (0, auth_1.default)(), user_controller_1.UserController.addToReadingList);
+router.post("/addToFinishedReading/:id", (0, auth_1.default)(), user_controller_1.UserController.addToFinishedReading);
+router.post("/removeFromWishlist/:id", (0, auth_1.default)(), user_controller_1.UserController.removeFromWishlist);
+router.post("/removeFromReadingList/:id", (0, auth_1.default)(), user_controller_1.UserController.removeFromReadingList);
+router.post("/removeFromFinishedReading/:id", (0, auth_1.default)(), user_controller_1.UserController.removeFromFinishedReading);
+router.get("/wishlist", (0, auth_1.default)(), user_controller_1.UserController.getWishlist);
+router.get("/readingList", (0, auth_1.default)(), user_controller_1.UserController.getReadingList);
+router.get("/finishedReading", (0, auth_1.default)(), user_controller_1.UserController.getFinishedReading);
+router.delete("/:id", (0, auth_1.default)(), user_controller_1.UserController.deleteAUser);
+router.get("/", (0, auth_1.default)(), user_controller_1.UserController.getAllUsers);
+router.get("/:id", (0, auth_1.default)(), user_controller_1.UserController.getSingleUser);
+exports.userRoutes = router;
