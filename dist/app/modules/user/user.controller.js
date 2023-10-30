@@ -15,8 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserController = void 0;
 const http_status_1 = __importDefault(require("http-status"));
 const catchAsync_1 = __importDefault(require("../../../shared/catchAsync"));
-const user_service_1 = require("./user.service");
 const sendResponse_1 = __importDefault(require("../../../shared/sendResponse"));
+const user_service_1 = require("./user.service");
 const getAllUsers = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield user_service_1.UserService.getAllUsers();
     (0, sendResponse_1.default)(res, {
@@ -61,9 +61,7 @@ const getMyProfile = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, v
     var _a, _b;
     const userId = (_a = req.user) === null || _a === void 0 ? void 0 : _a.userId;
     const email = (_b = req.user) === null || _b === void 0 ? void 0 : _b.email;
-    console.log(userId);
     const result = yield user_service_1.UserService.getMyProfile(userId, email);
-    console.log(result);
     (0, sendResponse_1.default)(res, {
         success: true,
         statusCode: http_status_1.default.OK,

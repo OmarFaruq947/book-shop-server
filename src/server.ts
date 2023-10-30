@@ -4,7 +4,7 @@ import app from "./app";
 import config from "./config/index";
 
 process.on("uncaughtException", (error) => {
-  console.log("uncaughtException", error);
+  // console.error("uncaughtException", error);
   process.exit(1);
 });
 
@@ -19,13 +19,13 @@ async function bootstrap() {
       console.log(`Application  listening on port ${config.port}`);
     });
   } catch (err) {
-    console.log("Failed to connect database", err);
+    console.error("Failed to connect database", err);
   }
 
   process.on("unhandledRejection", (error) => {
     if (server) {
       server.close(() => {
-        console.log("error--->", error);
+        // console.error("error--->", error);
         process.exit(1);
       });
     } else {

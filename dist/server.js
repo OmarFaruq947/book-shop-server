@@ -16,7 +16,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const app_1 = __importDefault(require("./app"));
 const index_1 = __importDefault(require("./config/index"));
 process.on("uncaughtException", (error) => {
-    console.log(error);
+    console.log("uncaughtException", error);
     process.exit(1);
 });
 let server;
@@ -35,7 +35,7 @@ function bootstrap() {
         process.on("unhandledRejection", (error) => {
             if (server) {
                 server.close(() => {
-                    console.log(error);
+                    console.log("error--->", error);
                     process.exit(1);
                 });
             }
@@ -46,9 +46,3 @@ function bootstrap() {
     });
 }
 bootstrap();
-// process.on("SIGTERM", () => {
-//   console.log("SIGTERM is received");
-//   if (server) {
-//     server.close();
-//   }
-// });

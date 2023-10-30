@@ -2,10 +2,17 @@
 
 ### Links
 
-- Live Link:
+Frontend:
 
-- Your Frontend Github Repository Link:
-- Your Backend Github Repository Link:
+- Live Link: https://main--fanciful-marigold-baa24f.netlify.app/
+
+- Your Frontend Github Repository Link: https://github.com/OmarFaruq947/book-shop-client
+
+Backend:
+
+- Your Backend Github Repository Link: https://github.com/OmarFaruq947/book-shop-server
+
+- API : https://islamic-book-shop-server-omarfaruq947.vercel.app/api/v1/books
 
 ##
 

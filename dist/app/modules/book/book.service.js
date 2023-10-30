@@ -97,7 +97,6 @@ const getReview = (id) => __awaiter(void 0, void 0, void 0, function* () {
         review: review.review,
         reviewer: review.reviewer ? { name: review.reviewer.name } : null,
     }));
-    console.log(reviewsWithReviewerName);
     return reviewsWithReviewerName;
 });
 exports.BookService = {
