@@ -16,7 +16,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const app_1 = __importDefault(require("./app"));
 const index_1 = __importDefault(require("./config/index"));
 process.on("uncaughtException", (error) => {
-    console.log("uncaughtException", error);
+    // console.error("uncaughtException", error);
     process.exit(1);
 });
 let server;
@@ -30,12 +30,12 @@ function bootstrap() {
             });
         }
         catch (err) {
-            console.log("Failed to connect database", err);
+            console.error("Failed to connect database", err);
         }
         process.on("unhandledRejection", (error) => {
             if (server) {
                 server.close(() => {
-                    console.log("error--->", error);
+                    // console.error("error--->", error);
                     process.exit(1);
                 });
             }
